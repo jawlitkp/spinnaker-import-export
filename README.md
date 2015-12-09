@@ -1,17 +1,32 @@
-# Spinnaker Upgrade Tool
+# Spinnaker Import/Export Tool
 
-## Process
+Nodejs web app that imports and exports the following Spinnaker items:
 
-Because of the multitude of different ways to install Spinnaker, it is recomended to install a fresh copy of Spinnaker the same way your original copy was installed. This tool will then export your data and import it on to your fresh copy.
+* Applications
+  * Pipelines
+  * Deployment Strategies
+  * Task Logs
+* Rush
+  * Executions
+* Echo
+  * Triggers
+  * Executions
 
-### Manual
+This is helpful for performing a Spinnaker upgrade. Simply export your items, shut down your instance, launch a fresh instance and run the import.
+
+## Export
+
+Clone the repo and shut down apache. The tool runs on the same port as deck, 9000.
+```
+$ git clone git@github.com:moondev/spinnaker-import-export.git && cd spinnaker-import-export
+$ sudo apache2ctl stop
+```
+
+Install node dependencies and start the app
 
 ```
-cqlsh -f export.cql
+$ npm install
+$ npm start
 ```
 
-Move the cql files to your new Spinnaker installation.
-
-```
-cqlsh -f import.cql
-```
+Visit your Spinnaker address `http://localhost:9000`

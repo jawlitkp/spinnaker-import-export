@@ -1,0 +1,28 @@
+{
+  "name": "spinnaker-upgrade-tool",
+  "version": "1.0.0",
+  "description": "Nodejs web app that imports and exports the following Spinnaker items:",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moondev/spinnaker-upgrade-tool.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moondev/spinnaker-upgrade-tool/issues"
+  },
+  "homepage": "https://github.com/moondev/spinnaker-upgrade-tool#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "sync-exec": "^0.6.2"
+  },
+  "devDependencies": {
+    "easy-zip": "0.0.4"
+  }
+}
