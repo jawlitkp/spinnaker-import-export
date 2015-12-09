@@ -1,0 +1,9 @@
+COPY front50.project TO 'front50.project.csv' WITH HEADER = 'true';
+COPY front50.application TO 'front50.application.csv' WITH HEADER = 'true';
+COPY front50.pipeline TO 'front50.pipeline.csv' WITH HEADER = 'true';
+COPY front50.strategy TO 'front50.strategy.csv' WITH HEADER = 'true';
+COPY front50.notifications TO 'front50.notifications.csv' WITH HEADER = 'true';
+COPY rush.execution TO 'rush.execution.csv' WITH HEADER = 'true';
+COPY echo.trigger TO 'echo.trigger.csv' WITH HEADER = 'true';
+COPY echo.execution TO 'echo.execution.csv' WITH HEADER = 'true';
+COPY echo.action_instance TO 'echo.action_instance.csv' WITH HEADER = 'true';
