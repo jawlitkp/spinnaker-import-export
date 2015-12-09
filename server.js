@@ -1,6 +1,7 @@
 var express = require('express');
 var sys = require('sys')
 var exec = require('child_process').exec;
+var fs = require('fs');
 
 var app = express();
 app.set('views', './views')
@@ -19,8 +20,18 @@ app.get('/export', function(req, res) {
   });
 });
 
-app.get('/import', function(req, res) {
-  res.render('import');
+app.post('/import', function(req, res) {
+  console.log(req.files);
+  fs.readFile(req.files.csv.path, function (err, data) {
+  var newPath = __dirname + "spinnaker_import.tgz";
+  fs.writeFile(newPath, data, function (err) {
+    exec("tar -xf spinnaker_import.tgz -C import", function (error, stdout, stderr) {
+      exec("cqlsh -f import.cql", function (error, stdout, stderr) {
+       res.send('done');
+    });
+    });
+  });
+});
 });
 
-app.listen(10000);
+app.listen(9000);

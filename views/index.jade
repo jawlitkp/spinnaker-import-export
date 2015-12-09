@@ -4,5 +4,9 @@ html
     title Spinnaker import/export tool
   body
     h2 Spinnaker import/export tool.
-    a.action(href="#") Import
-    a.action(href="#") Export
+    .action
+      form(action="/import" method="post" enctype="multipart/form-data") 
+        input(type="file" name="csv")
+        input(type="submit" value="import")       
+
+    a.action(href="/export") Export
