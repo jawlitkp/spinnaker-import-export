@@ -99,7 +99,6 @@ if args.mode == 'import':
     os.mkdir('import')
     os.system('cd import && ' + down)
     os.system('cd import && tar -xvf ' + args.importFile)
-    os.system('cqlsh -f cql/import.cql')
     for keyspace, tables in keyspaces.items():
         for table in tables:
             os.system('cqlsh -e "COPY ' + keyspace + '.' + table + ' FROM \'import/' + keyspace + '.' + table + '.csv\' WITH HEADER = \'true\';"')
@@ -109,6 +108,6 @@ if args.mode == 'export':
     os.mkdir('export')
     for keyspace, tables in keyspaces.items():
         for table in tables:
-            os.system('cqlsh -e "COPY ' + keysapce + '.' + table + ' TO \'export/' + keyspace + '.' + table + '.csv\' WITH HEADER = \'true\';"')
+            os.system('cqlsh -e "COPY ' + keyspace + '.' + table + ' TO \'export/' + keyspace + '.' + table + '.csv\' WITH HEADER = \'true\';"')
     os.system('cd export && tar -czf ../' + exportFile + ' .')
     os.system(up)
