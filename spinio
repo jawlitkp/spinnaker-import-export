@@ -13,7 +13,7 @@ parser.add_argument('--bucket', required=True, help='bucket name to store or dow
 parser.add_argument('--importFile', help='archive file name to import ')
 
 args = parser.parse_args()
-#print(args)
+
 exportFile = 'spinnaker_export_' + str(time.time()) + '.tgz'
 
 up = 'aws s3 cp ' + exportFile + ' s3://' + args.bucket
@@ -38,9 +38,9 @@ if args.mode == 'import':
     if os.path.exists('import'):
         shutil.rmtree('import')
     os.mkdir('import')
-    os.system('cd import && ' + down)
-    os.system('tar -xvf ' + args.importFile)
-    os.system('cd ../ && cqlsh -f cql/import.cql')
+    os.system('cd import && ' + down) 
+    os.system('cd import && tar -xvf ' + args.importFile)
+    os.system('cqlsh -f cql/import.cql')
 if args.mode == 'export':
     if os.path.exists('export'):
         shutil.rmtree('export')
