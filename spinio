@@ -14,6 +14,13 @@ parser.add_argument('--importFile', help='archive file name to import ')
 
 args = parser.parse_args()
 
+exportFile = 'spinnaker_export_' + time.time() + '.tgz'
+
+uploadCmd = 'aws s3 cp ' + exportFile + ' s3://' + args.bucket
+
+if args.cloud == 'gcloud':
+    uploadCmd = 'gsutil cp ' + exportFile + ' gs://' + args.bucket
+
 if not spawn.find_executable(args.cloud):
     raise Exception('Cannot find cloud sdk on path')
 
@@ -35,5 +42,5 @@ if args.mode == 'export':
         shutil.rmtree('export')
     os.mkdir('export')
     os.system('cqlsh -f cql/export.cql')
-    os.system('cd export && tar -zcvf ../spinnaker_export_' + time.time() + '.tgz')
+    os.system('cd export && tar -zcvf ../' + exportFile)
     #publish to bucket
