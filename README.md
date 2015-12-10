@@ -34,16 +34,15 @@ usage: spinio [-h] --cloud {aws,gcloud} --mode {import,export} --bucket BUCKET
 
 ## Spinnaker upgrade example
 
-1. Create a bucket to store the export
-2. Use the tool to export the archive to your bucket.
+* Create a bucket to store the export
+* Use the tool to export the archive to your bucket.
 ```
 ./spinio --cloud gcloud --mode export --bucket BUCKET-NAME
 ```
 Take note of the resulting archive filename that is uploaded.
 
-3. Stop your current instance and launch a fresh Spinnaker instance.
-
-4. Run the tool in import mode on your new instance with the name of the archive step 2 created.
+* Stop your current instance and launch a fresh Spinnaker instance.
+* Run the tool in import mode on your new instance with the name of the archive step 2 created.
 ```
 ./spinio --cloud gcloud --mode import --bucket BUCKET-NAME --importFile FILENAME
 ```
