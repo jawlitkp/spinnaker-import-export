@@ -1,9 +1,0 @@
-COPY front50.project FROM 'imports/front50.project.csv' WITH HEADER = 'true';
-COPY front50.application FROM 'importsexports/front50.application.csv' WITH HEADER = 'true';
-COPY front50.pipeline FROM 'importsexports/front50.pipeline.csv' WITH HEADER = 'true';
-COPY front50.strategy FROM 'importsexports/front50.strategy.csv' WITH HEADER = 'true';
-COPY front50.notifications FROM 'importsexports/front50.notifications.csv' WITH HEADER = 'true';
-COPY rush.execution FROM 'importsexports/rush.execution.csv' WITH HEADER = 'true';
-COPY echo.trigger FROM 'importsexports/echo.trigger.csv' WITH HEADER = 'true';
-COPY echo.execution FROM 'importsexports/echo.execution.csv' WITH HEADER = 'true';
-COPY echo.action_instance FROM 'importsexports/echo.action_instance.csv' WITH HEADER = 'true';
