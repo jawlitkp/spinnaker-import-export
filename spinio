@@ -38,7 +38,7 @@ if args.mode == 'import':
     if os.path.exists('import'):
         shutil.rmtree('import')
     os.mkdir('import')
-    os.system('cd import && ' + down) 
+    os.system('cd import && ' + down)
     os.system('cd import && tar -xvf ' + args.importFile)
     os.system('cqlsh -f cql/import.cql')
 if args.mode == 'export':
@@ -48,4 +48,3 @@ if args.mode == 'export':
     os.system('cqlsh -f cql/export.cql')
     os.system('cd export && tar -czf ../' + exportFile + ' .')
     os.system(up)
-    print exportFile + " has been uploaded to your bucket."
