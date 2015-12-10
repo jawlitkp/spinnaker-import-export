@@ -40,7 +40,9 @@ usage: spinio [-h] --cloud {aws,gcloud} --mode {import,export} --bucket BUCKET
 ./spinio --cloud gcloud --mode export --bucket BUCKET-NAME
 ```
 Take note of the resulting archive filename that is uploaded.
+
 3. Stop your current instance and launch a fresh Spinnaker instance.
+
 4. Run the tool in import mode on your new instance with the name of the archive step 2 created.
 ```
 ./spinio --cloud gcloud --mode import --bucket BUCKET-NAME --importFile FILENAME
