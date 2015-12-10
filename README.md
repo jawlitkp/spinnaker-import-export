@@ -38,6 +38,8 @@ $ npm start
 
 Visit your Spinnaker address `http://localhost:9000`
 
+![screen](screen.png)
+
 ### Export
 
 Clicking the export button will start the download of the archive. After this is done you can shut down your instance. However it is best to not terminate it until after you confirm the import on the new instance was a success.
